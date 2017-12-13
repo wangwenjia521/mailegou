@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="iconfont/iconfont.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="iconfont/iconfont.css">
+	<script type="text/javascript" src = "js/iconfont.js"></script>
+	<style type="text/css">
+	.icon {
+   width: 1em; height: 1em;
+   vertical-align: -0.15em;
+   fill: currentColor;
+   overflow: hidden;
+}
+</style>
+<script type="text/javascript" src = "js/jquery-1.11.1.js"></script>
+</head>
+<body>
+	<!-- 头部广告 -->
+	<div id = "adTop">
+		<a href="" alt= "">
+			<img src="images/guanggao.jpg" alt = "">
+		</a>
+		<!-- <span id ="btnDown" style = "display:none">展开</span> -->
+		<span id = "btnHide">关闭</span>
+	</div>
+	<!-- 广告关闭 -->
+	<script type="text/javascript">
+		$("#btnHide").click(function(){
+			console.log(1);
+			$("#adTop").css({"display":"none"});
+		})
+	</script>
+	<!-- logo -->
+	<section>
+		<div class="sTop">
+			<div class="sTopL">
+				<a href="" class = "active">
+					<svg class="icon" aria-hidden="true">
+  				<use xlink:href="#icon-shouye"></use>
+				</svg>乐麦网首页</a>
+				<a href="" class = "active">请登录</a>
+				<a href="" class = "active mf">免费注册</a>
+				<a>其他登录方式:</a>
+				<a><svg class="icon" aria-hidden="true">
+  				<use xlink:href="#icon-qq"></use>
+				</svg></a>
+				<a><svg class="icon" aria-hidden="true">
+  				<use xlink:href="#icon-zhifubao"></use>
+				</svg></a>
+				<a><svg class="icon" aria-hidden="true">
+  				<use xlink:href="#icon-shoujiweishi"></use>
+				</svg></a>
+				<a><svg class="icon" aria-hidden="true">
+  				<use xlink:href="#icon-weibo"></use>
+				</svg></a>
+				
+				<a>联系客服：400-666-6600</a>
+			</div>
+			<div class="sTopR">
+				<span id = "ss">
+					我的乐麦网
+				<ul id = "uu">
+					<li><a href="">我的订单</a></li>
+					<li><a href="">我的账户</a></li>
+					<li><a href="">麦豆兑换</a></li>
+					<li><a href="">我的优惠券</a></li>
+					<li><a href="">我的收藏</a></li>
+				</ul>
+				</span>
+				
+				<span class = "iconfont icon-five-pointed-star">收藏乐购</span>
+				<span>妈妈推广计划</span>
+				<span><svg class="icon" aria-hidden="true">
+  				<use xlink:href="#icon-shouji"></use>
+				</svg>手机麦乐购 <img class = "im2" src="images/xiala.jpg" ></span>
+			</div>
+			<script type="text/javascript">
+					$(".sTopR span").first().mouseenter(function(e){
+						$("#uu").slideDown(1000);
+						e.stopPropagation();
+					})
+					$(".sTopR span").last().mouseenter(function(e){
+						$(".im2").slideDown(400);
+						e.stopPropagation();
+					})
+					$(".sTopR span").last().mouseleave(function(){
+							$(".im2").slideUp(100);
+						})
+					$(".sTopR span").first().mouseleave(function(){
+							$("#uu").slideUp(100);
+						})
+				</script>
+		</div>
+		<div class = "sBottom">
+			<a href=""> <img src="images/logo.jpg"></a>
+			<div class = "sBottom2">
+				<form id="searchForm" action="https://www.m6go.com/search/index.do" target="_self" >
+			<input type="text" class="txt" value="请输入商品名称,支持拼音搜索">
+			<input type="submit" value="搜索" class="sub">
+			</form>
+			<p class="hot">
+					热门关键词:                       
+			    <a  target="_blank">小安素</a>
+				<a >防晒</a>
+				<a >牛栏</a>
+				<a >花王</a>
+				<a >美素</a>
+				<a >爱他美</a>
+				<a >karicare</a>
+				<a >喜宝</a>
+			</p>
+			</div>
+			
+			<div class ="adS">
+				<a href=""><img src="images/adS.jpg"></a>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</section>
+	<!-- 导航栏 -->
+	<div class="nav">
+		<div class="openBtn"> 全部商品分类</div>
+		<div class="navL">
+			<span class = "border2"></span>
+		<ul class="navList">
+			<li><a href="">首页</a></li>
+			<li><a href="">进口奶粉</a></li>
+			<li><a href="">发现好货</a></li>
+			<!-- <li><a href="">
+				<span class="words-warp">
+				<b><i>整</i><i>点</i><i>抢</i></b>
+				<b><i>整</i><i>点</i><i>抢</i></b>
+				</span>
+			</a></li> -->
+			<li><a href="">天天特价</a></li>
+			<li><a href="">正品保证</a></li>
+			<li><a href="">海外直邮</a></li>
+			<li><a href="">国家馆</a></li>
+		</ul>
+		</div>
+		<script type="text/javascript">
+			var initLeft = $(".navList li:first").find("a").offset().left +10;
+			var start = $(".navList li:first").find("a").width();
+			var $lilist = $(".navList li");
+			var currentIndex = 0;
+			for(let i = 0; i < $lilist.length;i++){
+				$(".border2").css({"width":start,"left":initLeft});
+				$($lilist[i]).mouseover(function(){
+						currentIndex = i;
+					var widthL = $(this).find("a").offset().left + 12;
+					var widthS = $(this).find("a").width();
+					$(".border2").animate({"left":widthL,"width":widthS},200);
+				})
+				$(".navList").mouseleave(function(){
+					$(".border2").animate({"left":initLeft -6,"width":start},200);	
+				})	
+			}
+		</script>
+		<div class="navCart"><a href="" ><span class = "iconfont icon-qicheqianlian-" style = "margin-right:6px"></span>去购物车结算</a></div>
+	</div>
+	<!-- 轮播图 -->
+	<article>
+	<!-- 	<div class="bannertu"> -->
+			<div class="banner">
+				<div class="container">
+					<div class = "sC" style="z-index: 5">
+						<a href=""><img src="images/lbt1.jpg"></a>	
+					</div>
+				</div>
+				<div class="container" style="z-index: 4">
+					<div class = "sC">
+						<a href=""><img src="images/lbt2.jpg"></a>	
+					</div>
+				</div>
+				<div class="container"  style="z-index: 3">
+					<div class = "sC">
+						<a href=""><img src="images/lbt3.jpg"></a>	
+					</div>
+				</div>
+				<div class="container"  style="z-index: 2">
+					<div class = "sC">
+						<a href=""><img src="images/lbt4.jpg"></a>	
+					</div>
+				</div>
+				<div class="container"  style="z-index: 1">
+					<div class = "sC">
+						<a href=""><img src="images/lbt5.jpg"></a>	
+					</div>
+				</div>
+				<script type="text/javascript">
+					var timer =setInterval(auto,1000);
+					var index = 0;
+					var arr = ["(209, 8, 33)","(254, 222, 204)","(254, 228, 229)","(254, 226, 212)","(254, 226, 212)","(131, 215, 238)"];
+					function auto(){
+						//console.log(index);
+						index++;
+						if(index == $(".container").length){
+							index = 0;
+						}
+						console.log(`rgb${arr[index]}`);
+						$("article").css({"background":`rgb${arr[index]}`});
+						 $(".banner .container").eq(index).fadeIn(100).siblings().fadeOut(100);
+						
+					}
+				</script>
+			</div>
+		<!-- 左侧导航栏 -->
+		<div class="navBox">
+			<ul>
+				<li>
+					<i class = "iconfont icon-naiping"></i>
+					<h6>宝宝奶粉</h6>
+					<p>
+						<a href="">牛奶粉</a>
+						<a href="">羊奶粉</a>
+						<a href=""></a>
+					</p>
+				</li>
+
+				<li>
+					<i class = "iconfont icon-dawan"></i>
+					<h6>宝宝辅食</h6>
+					<p>
+						<a href="">米粉</a>
+						<a href="">宝宝零食</a>
+						<a href=""></a>
+					</p>
+				</li>
+
+				<li>
+					<i class = "iconfont icon-yingyangrupin"></i>
+					<h6>营养保健</h6>
+					<p>
+						<a href="">宝宝营养</a>
+						<a href="">承认营养</a>
+						<a href=""></a>
+					</p>
+				</li>
+
+				<li>
+					<i class = "iconfont icon-yingerche"></i>
+					<h6>宝宝用品</h6>
+					<p>
+						<a href="">纸尿裤</a>
+						<a href="">喂食</a>
+						<a href="">洗护</a>
+					</p>
+				</li>
+
+				<li>
+					<i class = "iconfont icon-naiping"></i>
+					<h6>宝宝服饰</h6>
+					<p>
+						<a href="">婴幼服饰</a>
+						<a href="">童装</a>
+						<a href="">童鞋</a>
+					</p>
+				</li>
+				<li>
+					<i class = "iconfont icon-che1-copy"></i>
+					<h6>宝宝玩具</h6>
+					<p>
+						<a href="">婴幼玩具</a>
+						<a href="">遥控/电动</a>
+						<a href=""></a>
+					</p>
+				</li>
+
+				<li>
+					<i class = "iconfont icon-shouji"></i>
+					<h6>孕产妇用品</h6>
+					<p>
+						<a href="">孕妈营养</a>
+						<a href="">产前产后</a>
+						<a href=""></a>
+					</p>
+				</li>
+
+				<li>
+					<i class = "iconfont icon-huazhuangpin"></i>
+					<h6>个人化妆</h6>
+					<p>
+						<a href="">夏季防晒</a>
+						<a href="">面部护肤</a>
+						<a href=""></a>
+					</p>
+				</li>
+
+				<li>
+					<i class = "iconfont icon-beizizhuanhuan"></i>
+					<h6>居家生活</h6>
+					<p>
+						<a href="">食品饮料</a>
+						<a href="">生活用品</a>
+						<a href=""></a>
+					</p>
+				</li>
+			</ul>
+		</div>
+		<!-- 左侧导航栏内容 -->
+			<div class="menu-con">
+				<div class="sub">
+					<div class="innerBox">
+						<p>
+							<strong>热门品牌</strong>
+							<a href="" target = "_blank">荷兰牛栏Nutrilon</a>
+							<a href="" target = "_blank">德国爱他美Aptamil</a>
+							<a href="" target = "_blank">德国喜宝Hipp</a>
+							<a href="" target = "_blank">荷兰美素Hero Baby</a>
+							<a href="" target = "_blank">英国牛栏Cow＆Gate</a>
+							<a href="" target = "_blank">新西兰爱他美Aptamil</a>
+							<a href="" target = "_blank">新西兰爱他美Aptamil</a>
+							<a href="" target = "_blank">新西兰Karicare</a>
+							<a href="" target = "_blank">澳洲a2</a>
+							<a href="" target = "_blank">德国凯莉泓乐Holle澳洲a2</a>
+							<a href="" target = "_blank">美国美赞臣Meadjohnson</a>
+							<a href="" target = "_blank">美国雅培Similac</a>
+							<a href="" target = "_blank">新西兰惠氏Wyeth</a>
+						</p>
+						 <p>
+							<strong>优惠套餐</strong> 
+						 	<a href="" target = "_blank">买7送1</a>
+							<a href="" target = "_blank">4罐优惠</a>
+							<a href="" target = "_blank">2罐优惠</a>
+						 </p>
+						 <p>
+							<strong>适用年龄</strong> 
+						 	<a href="" target = " _blank">0-6个月</a>
+						 	<a href="" target = " _blank">6-12个月</a>
+						 	<a href="" target = " _blank">1-2岁</a>
+						 	<a href="" target = " _blank">2-3岁</a>
+						 	<a href="" target = " _blank">3-6岁</a>
+						 	<a href="" target = " _blank">儿童奶粉</a>
+						 	<a href="" target = " _blank">儿童奶粉（直邮）</a>
+						 </p>
+						 <p>
+							<strong>奶粉分类</strong> 
+						 	<a href="" target = "_blank">牛奶粉</a>
+							<a href="" target = "_blank">羊奶粉</a>
+							<a href="" target = "_blank">有机奶粉</a>
+							<a href="" target = "_blank">益生菌奶粉</a>
+							<a href="" target = "_blank">牛乳蛋白过敏奶粉</a>
+							<a href="" target = "_blank">乳糖不耐受奶粉</a>
+							<a href="" target = "_blank">早产儿奶粉</a>
+							<a href="" target = "_blank">孕妇奶粉</a>
+							<a href="" target = "_blank">宝宝奶粉（直邮</a>
+						 </p> 
+				</div>
+		</div>
+	 </div>
+	</article>
+</body>
+</html>
